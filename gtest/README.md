@@ -8,13 +8,15 @@
 | `EXPECT_FALSE( cond )` | Uses ! operator |
 | `EXPECT_EQ(expected, actual)` | Uses == operator |
 | `EXPECT_NE(expected, actual)` | Uses != operator |
-| `EXPECT_STREQ(expected, actual)` | strcmp C-strings. Use `EXPECT_EQ` for std::string |
+| `EXPECT_STREQ(expected, actual)` | `strcmp` C-strings. Use `EXPECT_EQ` for `std::string` |
 | `EXPECT_THROW(call(), ExType)` | Test that call() throws an exception of type ExType |
-| `EXPECT_NO_THROW( call() ) | Test that call() does not throw. Note that unexpected exceptions or exceptions thrown in SetUp() or TearDown() do not generate helpful output |
-| `EXPECT_NEAR( expected, actual, tolerance ) | Test that a value is within a tolerable range of the expected value |
+| `EXPECT_NO_THROW( call() )` | Test that `call()` does not throw. Note that unexpected exceptions or exceptions thrown in `SetUp()` or `TearDown()` do not generate helpful output |
+| `EXPECT_NEAR( expected, actual, tolerance )` | Test that a value is within a tolerable range of the expected value |
 
 # Example Test Fixture
 ```
+#include <gtest/gtest.h>
+
 class TestFixture : public ::testing:Test {
  public:
    TestFixture()
@@ -31,5 +33,10 @@ class TestFixture : public ::testing:Test {
    {
       // Run after each test, including on failure
    }
+}
+
+TEST_F( TestFixture, Test1 )
+{
+   FAIL( "TODO" );
 }
 ```
